@@ -1,0 +1,15 @@
+<title>51dy.com</title>
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <title>Highstock Example</title>
+    </head>
+    <body>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/highstock/2.0.4/highstock.js"></script>
+<script src="http://code.highcharts.com/modules/exporting.js"></script>
+ 
+
+<div id="container" style="height: 400px"></div>
+    </body>
+</html>

@@ -1,0 +1,85 @@
+
+<title>51dy.com</title>
+
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <title>Highstock Example</title>
+
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+        <style type="text/css">
+${demo.css}
+        </style>
+        <script type="text/javascript">
+$(function () {
+    $.getJSON('/cpudata?callback=?', function (data) {
+
+        // Create the chart
+        $('#container').highcharts('StockChart', {
+
+            rangeSelector: {
+                inputEnabled: $('#container').width() > 480,
+                buttons: [{
+                        type: 'week',
+                        count : 1,
+                        text : '1w'
+                        },
+                    {
+                        type: 'month',
+                        count :1,
+                        text : '1m'
+                        },
+                    {
+                        type: 'year',
+                        count : 1,
+                        text : '1y'
+                    },
+                    {
+                        type :'all',
+                        text : 'all'
+                    }],
+                selected: 1
+            },
+
+            title: {
+                text: 'cpu rate'
+            },
+            
+            xAxis: {
+                title: {
+                    text : 'date'
+                },
+                type :  'datetime',
+            },
+
+            series: [{
+                name: '51dy.com',
+                data: data,
+                type: 'spline',
+                tooltip: {
+                    valueDecimals: 2
+                }
+            }]
+        });
+    });
+});
+
+        </script>        
+         <script language="JavaScript">
+            function myrefresh(){
+                window.location.reload();
+                }
+            setTimeout('myrefresh()',5000); //指定5秒刷新一次
+        </script>
+    </head>
+    
+    <body>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/highstock/2.0.4/highstock.js"></script>
+    <script src="http://code.highcharts.com/modules/exporting.js"></script>
+ 
+
+    <div id="container" style="height: 400px"></div>    
+
+    </body>
+</html>
